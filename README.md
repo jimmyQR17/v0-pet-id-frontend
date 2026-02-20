@@ -1,30 +1,110 @@
-# PetID frontend
+# PetID - Aplicación Móvil
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Aplicación React Native con Expo para gestionar la información de tus mascotas, citas veterinarias, tratamientos médicos y collar digital NFC/QR.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/jimely1824-4812s-projects/v0-pet-id-frontend)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/iZudd1aDxzw)
+## Instalación
 
-## Overview
+### Requisitos previos
+- Node.js (v16 o superior)
+- npm o yarn
+- Expo CLI instalado globalmente: `npm install -g expo-cli`
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+### Pasos de instalación
 
-## Deployment
+1. Clona o descarga el proyecto
+2. Instala las dependencias:
+\`\`\`bash
+npm install
+# o
+yarn install
+\`\`\`
 
-Your project is live at:
+## Ejecución
 
-**[https://vercel.com/jimely1824-4812s-projects/v0-pet-id-frontend](https://vercel.com/jimely1824-4812s-projects/v0-pet-id-frontend)**
+### En Expo Go (más rápido)
+\`\`\`bash
+npm start
+# o
+yarn start
+\`\`\`
+Escanea el código QR con Expo Go (disponible en App Store y Google Play)
 
-## Build your app
+### En Android
+\`\`\`bash
+npm run android
+\`\`\`
 
-Continue building your app on:
+### En iOS
+\`\`\`bash
+npm run ios
+\`\`\`
 
-**[https://v0.app/chat/iZudd1aDxzw](https://v0.app/chat/iZudd1aDxzw)**
+### En Web
+\`\`\`bash
+npm run web
+\`\`\`
 
-## How It Works
+## Características
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+- Autenticación con Google
+- Gestión de mascotas (CRUD completo)
+- Calendario de citas veterinarias
+- Registro de tratamientos médicos
+- Collar digital NFC/QR
+- Historial médico de mascotas
+- Perfil del dueño
+- Datos persistentes con AsyncStorage
+
+## Estructura de carpetas
+
+\`\`\`
+├── App.tsx                 # Archivo principal
+├── screens/                # Pantallas de la app
+│   ├── LoginScreen.tsx
+│   ├── MascotasScreen.tsx
+│   ├── MascotaDetailScreen.tsx
+│   ├── CalendarioScreen.tsx
+│   ├── AgregarMascotaScreen.tsx
+│   ├── TratamientosScreen.tsx
+│   ├── CollarScreen.tsx
+│   └── PerfilScreen.tsx
+├── constants/              # Constantes globales
+│   └── colors.ts
+├── types/                  # Tipos TypeScript
+│   └── index.ts
+├── assets/                 # Imágenes y recursos
+├── app.json                # Configuración de Expo
+├── app.tsx                 # Configuración de navegación
+└── package.json
+\`\`\`
+
+## Conexión con API .NET
+
+Para conectar la app con tu API .NET, actualiza la URL base en las pantallas:
+
+\`\`\`typescript
+const API_BASE_URL = 'https://tu-api.com/api';
+\`\`\`
+
+## Variables de Entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+\`\`\`
+EXPO_PUBLIC_API_URL=https://tu-api.com/api
+EXPO_PUBLIC_GOOGLE_CLIENT_ID=tu-client-id
+\`\`\`
+
+## Autenticación con Google
+
+Para configurar autenticación con Google:
+
+1. Ve a [Google Cloud Console](https://console.cloud.google.com/)
+2. Crea un proyecto
+3. Habilita Google Sign-In API
+4. Crea credenciales OAuth 2.0
+5. Reemplaza los IDs en `LoginScreen.tsx`
+
+## Licencia
+
+MIT
